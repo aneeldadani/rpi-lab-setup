@@ -25,3 +25,6 @@ Reboots the server
 
 #### Sample playbook command:
 ```ansible-playbook reboot.yaml -i hosts.yaml --vault-id ubuntu@prompt```
+
+### ansible-vault.txt
+This shows how to use Ansible Vault to maintain and use your secrets so you don't have to store sensitive data in plaintext.
