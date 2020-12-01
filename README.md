@@ -1,5 +1,4 @@
 # rpi-lab-setup
-## RPi Ansible Playbooks
 I used the Ansible Playbooks to configure the Raspberry Pi nodes for my environment.
 
 ### install-ansible.sh
