@@ -1,0 +1,17 @@
+---
+- name: Preparing both servers
+  hosts: all
+  become: true
+  vars_prompt:
+      #Prompts user for username to delete
+    - name: username
+      prompt: Which username do you want to delete?
+      private: no
+
+  tasks:
+
+  - name: Removing the user 
+    user:
+      name:  "{{ username }}"
+      state: absent
+      remove: yes

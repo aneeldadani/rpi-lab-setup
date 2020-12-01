@@ -1,0 +1,67 @@
+---
+- name: Preparing both servers
+  hosts: all
+  become: true
+  vars_prompt:
+      #Prompts user for password when playbook runs
+    - name: password
+      prompt: Enter the password you want to set for the user
+      private: yes
+      unsafe: yes
+      encrypt: sha512_crypt
+      confirm: yes
+      salt_size: 7
+
+  tasks:
+
+    - name: Backup of /etc/hostname file
+      copy:
+        src: /etc/hostname
+        dest: /etc/hostname.backup
+
+    - name: Adding user
+      user:
+        name: [user]     #Specify username here
+        shell: /bin/bash
+        group: sudo
+        append: yes
+
+    - name: Change user password
+      user:
+        name: [user]     #Specify username here
+        update_password: always
+        password: "{{ password }}"
+
+- name: Setting up controller 
+  hosts: rpi-controller
+  become: true
+  vars_prompt:
+      #Prompts user for hostname1
+    - name: hostname1
+      prompt: What is the first hostname?
+      private: no
+
+  tasks:
+        
+    - name: Set hostname1
+      replace:
+        path: /etc/hostname
+        regexp: '^(.+)$'
+        replace: '{{ hostname1 }}'
+
+- name: Setting up nodes 
+  hosts: rpi-nodes
+  become: true
+  vars_prompt:
+      #Prompts user for hostname2
+    - name: hostname2
+      prompt: What is the second hostname?
+      private: no
+
+  tasks:
+        
+    - name: Set hostname2 
+      replace:
+        path: /etc/hostname
+        regexp: '^(.+)$'
+        replace: '{{ hostname2 }}'
