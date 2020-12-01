@@ -2,7 +2,7 @@
 I used the Ansible Playbooks to configure the Raspberry Pi nodes for my environment.
 
 ### install-ansible.sh
-This bash script is used to install Ansible on your Ansible Controller. The Ansible Controller is used to execute playbooks which lets you manage the nodes in your environment.
+This bash script is used to install Ansible on your Ansible Controller. The Ansible Controller is used to execute playbooks which lets you manage the nodes in your environment. All the playbooks will run from the Controller. The hosts file will maintain the inventory which is what you're going to be configuring.
 
 ### hosts.yaml
 This is your inventory file. You can specify the host details and group them. When you want a playbook to execute against a group of assets in your inventory, this is where you manage it.
