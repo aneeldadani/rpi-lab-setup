@@ -3,7 +3,7 @@
   hosts: all
   become: true
   vars_prompt:
-      #Prompts user for username to delete
+      #Prompts to specify which username to delete
     - name: username
       prompt: Which username do you want to delete?
       private: no
