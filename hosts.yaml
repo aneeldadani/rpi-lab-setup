@@ -6,6 +6,8 @@ rpi-controller:
   vars:
       ansible_connection: ssh
       ansible_user: [username]
+      ansible_password: !vault |
+          $ANSIBLE_VAULT;[hash]
 
 rpi-nodes:
   hosts:
@@ -14,3 +16,5 @@ rpi-nodes:
   vars:
       ansible_connection: ssh
       ansible_user: [username]
+      ansible_password: !vault |
+          $ANSIBLE_VAULT;[hash]
