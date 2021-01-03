@@ -1,0 +1,40 @@
+---
+- name: Preparing both servers
+  hosts: all
+  become: true
+  vars_prompt:
+      #Prompts for username to create
+    - name: username
+      prompt: What is the username you want to create?
+      private: no
+
+      #Prompt for password to set for username
+    - name: password
+      prompt: Enter the password you want to set for the user
+      private: yes
+      unsafe: yes
+      encrypt: sha512_crypt
+      confirm: yes
+      salt_size: 7
+
+  tasks:
+
+  - name: Creating the user 
+    user:
+      name:  "{{ username }}"
+      shell: /bin/bash
+      group: admin
+      append: yes
+
+  - name: Adding user to sudoers group
+    user:
+      name: "{{ username }}"
+      shell: /bin/bash
+      group: sudo
+      append: yes
+
+  - name: Change user password
+    user:
+      name: "{{ username }}"    
+      update_password: always
+      password: "{{ password }}"
