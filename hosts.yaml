@@ -2,19 +2,15 @@
 rpi-controller:
   hosts:
     pi-controller:
-      ansible_host: [IP of host]
+      ansible_host: pi-controller   # hostname defined in /etc/hosts
   vars:
       ansible_connection: ssh
-      ansible_user: [user]
-      ansible_password: !vault |
-          $ANSIBLE_VAULT;[hash]
+      ansible_user: [username]
 
 rpi-nodes:
   hosts:
     pi-node01:
-      ansible_host: [IP of host]
+      ansible_host: pi-node01   # hostname defined in /etc/hosts
   vars:
       ansible_connection: ssh
-      ansible_user: [user]
-      ansible_password: !vault |
-          $ANSIBLE_VAULT;[hash]
+      ansible_user: [username]
