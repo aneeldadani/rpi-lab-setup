@@ -21,7 +21,7 @@ The playbook to use when you want to delete a user. When you run this playbook, 
 ### reboot_host.yaml
 Reboots the nodes in the inventory file
 
-### ansible-vault.txt
+### ansible_vault.txt
 This shows how to use Ansible Vault to maintain and use your secrets so you don't have to store sensitive data in plaintext.
 
 #### Sample playbook command:
