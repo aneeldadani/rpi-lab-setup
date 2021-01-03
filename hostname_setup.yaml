@@ -2,15 +2,6 @@
 - name: Preparing both servers
   hosts: all
   become: true
-  vars_prompt:
-      #Prompts user for password when playbook runs
-    - name: password
-      prompt: Enter the password you want to set for the user
-      private: yes
-      unsafe: yes
-      encrypt: sha512_crypt
-      confirm: yes
-      salt_size: 7
 
   tasks:
 
@@ -18,19 +9,6 @@
       copy:
         src: /etc/hostname
         dest: /etc/hostname.backup
-
-    - name: Adding user
-      user:
-        name: [user]     #Specify username here
-        shell: /bin/bash
-        group: sudo
-        append: yes
-
-    - name: Change user password
-      user:
-        name: [user]     #Specify username here
-        update_password: always
-        password: "{{ password }}"
 
 - name: Setting up controller 
   hosts: rpi-controller
