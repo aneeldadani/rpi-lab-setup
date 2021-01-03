@@ -25,6 +25,6 @@ Reboots the nodes in the inventory file
 This shows how to use Ansible Vault to maintain and use your secrets so you don't have to store sensitive data in plaintext.
 
 #### Sample playbook command:
-```ansible-playbook reboot.yaml -i hosts.yaml --vault-id ubuntu@prompt```
+```ansible-playbook reboot_host.yaml -i hosts.yaml --vault-id ubuntu@prompt```
 
 
