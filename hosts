@@ -1,0 +1,5 @@
+[rpi-controller]
+REPLACE_ME_IP_ADDRESS  ansible_connection=ssh  ansible_user=REPLACE_ME_USER
+
+[rpi-nodes]
+REPLACE_ME_IP_ADDRESS  ansible_connection=ssh  ansible_user=REPLACE_ME_USER
