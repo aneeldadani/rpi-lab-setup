@@ -21,3 +21,6 @@ sudo apt install ansible -y
 
 echo "Installation Complete"
 echo "Installed Ansible version $(ansible --version)"
+
+echo "Installing sshpass"
+sudo apt install sshpass
