@@ -15,3 +15,5 @@
       name:  "{{ username }}"
       state: absent
       remove: yes
+
+# Run this with command: ansible-playbook -i hosts delete_user.yaml --ask-pass -K
